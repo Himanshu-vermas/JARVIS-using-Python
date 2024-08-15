@@ -1,0 +1,23 @@
+import pyttsx3
+import speech_recognition as sr
+import webbrowser
+import datetime
+import pyjokes
+
+def sptext():
+              #varaible
+    recognizer=sr.Recognizer()
+    with sr.Microphone() as source:  #function
+        print("Listening...")
+        recognizer.adjust_for_ambient_noise(source)   #noise brack
+        audio = recognizer.listen(source)
+        try:
+            print("recognizing...")
+            data = recognizer.recognize_google(audio)
+            print(data)
+        except sr.UnknownValueError:
+            print(" No Understand ")
+
+sptext()
+
+
